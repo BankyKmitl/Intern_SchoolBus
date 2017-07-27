@@ -1,0 +1,35 @@
+<!DOCTYPE html> {% extends 'school_bus/base.html' %}
+<html>
+
+<head>
+    {% block title %} {{ student.firstname }} {{ student.lastname }} {% endblock %}
+</head>
+
+<body>
+    {% block content %}
+    <div class="w3-row">
+        <div class="w3-col w3-container" style="width:20%"></div>
+        <div class="w3-card-4 w3-hover-shadow w3-half w3-col" style="padding:16px; width:60%; margin:24px">
+            <div class="w3-container w3-center" style="display: inline-block">
+                <img src={{ student.img.url }} alt="Avatar" class="w3-circle" style="width:300px; height:300px; padding:8px;">
+                <h2> <b>{{ student.firstname }}  {{ student.lastname}}</b></h2>
+            </div>
+            <div class="w3-container" style="display: inline-block; vertical-align: top;">
+                <p> <b>StudentID : </b> {{ student.studentID }} </p>
+                {% if student.gender %}
+                <p> <b>Gender : </b> Male </p>
+                {% else %}
+                <p> <b>Gender : </b> Female </p>
+                {% endif %}
+                <p> <b>Age : </b> {{ student.age }} </p>
+                <p> <b>Grade : </b> {{ student.grade }} </p>
+                <p> <b>Take Address : </b> {{ student.take_address }} </p>
+                <p> <b>Drop Address : </b> {{ student.drop_address }} </p>
+                <p> <b>First Scan : </b> {{ first_scan.time}}</p>
+                <p> <b>Last Scan : </b> {{ scan_log.0.time}} </p>
+            </div>
+        </div>
+        <div class="w3-col w3-container" style="width:20%"></div>
+    </div>
+    {% endblock %}
+</body>

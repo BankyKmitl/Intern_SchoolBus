@@ -1,0 +1,44 @@
+<!DOCTYPE html> {% extends 'school_bus/base.html' %}
+<html>
+
+<head>
+    {% block title %} {{bus.license_number}} {{bus.license_province}} {% endblock %}
+</head>
+
+<body>
+    {% block content %}
+    <div class="w3-row w3-twothird">
+        <div class="w3-card-4 w3-hover-shadow" style="padding:16px; margin:24px">
+            <div class="w3-container w3-center" style="display: inline-block">
+                <img src={{ bus.img.url }} alt="Avatar" class="w3-circle w3-image" style="width:300px; height:300px; padding:8px;">
+                <h2> <b>{{ bus.license_number }}  {{ bus.license_province}}</b></h2>
+            </div>
+            <div class="w3-container" style="display: inline-block; vertical-align: top;">
+                <p> <b>Number : </b> {{ bus.number }} </p>
+                <p> <b>Color: </b> {{ bus.color }} </p>
+                <p> <b>Brand : </b> {{ bus.brand }} </p>
+                <p> <b>Route : </b> {{ bus.route }} </p>
+            </div>
+        </div>
+    </div>
+    <div class="w3-row w3-third">
+        <div class="w3-card-4 w3-hover-shadow" style="padding:16px; margin:24px">
+            <div class="w3-container w3-center" style="display: inline-block, vertical-align: top;">
+                <img src={{ driver.img.url }} alt="Avatar" class="w3-circle w3-image" style="width:300px; height:300px; padding:8px;">
+                <h2> <b>{{ driver.firstname }}  {{ driver.lastname }}</b></h2>
+            </div>
+            <div class="w3-container" style="display: inline-block; vertical-align: top;">
+                {% if driver.gender %}
+                <p> <b>Gender : </b> Male </p>
+                {% else %}
+                <p> <b>Gender : </b> Female </p>
+                {% endif %}
+                <p> <b>Tel: </b> {{ driver.tel }} </p>
+            </div>
+        </div>
+    </div>
+    </div>
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<html>
+
+<head>
+    <title>
+        {% block title %}{% endblock %}
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="w3-bar w3-border w3-xlarge w3-yellow">
+        <a href="{% url 'home' %}" class="w3-bar-item w3-button w3-padding-right-16" style="width:10%">
+            <i class="fa fa-home"></i>
+        </a>
+        <a href="{% url 'bus' request.user.Bus_license_id %}" class="w3-bar-item w3-button " style="width:40%">
+            {{ bus.license_number }} {{ bus.license_province}}
+        </a>
+        <a href="{% url 'student' request.user.studentID_id %}" class="w3-bar-item w3-button " style="width:30%">
+            {{ student.firstname }} {{ student.lastname}}
+        </a>
+        <div class="w3-bar-item " style="width:15%; text-align:right">
+            {{ user.get_username }}
+        </div>
+        <a href="{% url 'logout' %}" class="w3-bar-item w3-button" style="width:5%">
+            <i class="fa fa-sign-out"></i>
+        </a>
+    </div>
+    <div class="content container">
+        {% block content %} {% endblock %}
+    </div>
+</body>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<title>Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+    <header class="w3-container w3-yellow">
+        <h1>School Bus Login</h1>
+    </header>
+    <div class="w3-row">
+        <div class="w3-col w3-container" style="width:30%"></div>
+        <form class="w3-container w3-col w3-card-4" style="width:40%; margin:16px" method="POST">
+            {% csrf_token %}
+            <p>
+                <input class="w3-input" type="text" style="width:90%" name="username" required>
+                <label><b>Username</b></label>
+            </p>
+            <p>
+                <input class="w3-input" type="password" style="width:90%" name="password" required>
+                <label><b>Password</b></label>
+            </p>
+            <button class="w3-btn w3-yellow" style="justify-content: center"> Log in </button>
+            </p>
+            <input type="hidden" name="next" value="{{ next }}" />
+        </form>
+        <div class="w3-col w3-container" style="width:30%"> </div>
+    </div>
